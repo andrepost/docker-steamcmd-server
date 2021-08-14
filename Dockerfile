@@ -1,7 +1,10 @@
 FROM ezurek/debian-baseimage
 
 RUN apt-get update && \
-	apt-get install -qq build-essential && \
+	dpkg --add-architecture i386
+
+RUN apt-get update && \
+	apt-get install -qq build-essential libcurl4-gnutls-dev:i386 && \
 	apt-get -y install --no-install-recommends lib32gcc1 lib32stdc++6 lib32stdc++6 && \
 	rm -rf /var/lib/apt/lists/*
 
