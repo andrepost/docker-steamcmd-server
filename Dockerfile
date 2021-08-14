@@ -1,8 +1,7 @@
-FROM ich777/debian-baseimage
-
-LABEL maintainer="admin@minenet.at"
+FROM ezurek/debian-baseimage
 
 RUN apt-get update && \
+	apt-get install -qq build-essential && \
 	apt-get -y install --no-install-recommends lib32gcc1 lib32stdc++6 lib32stdc++6 && \
 	rm -rf /var/lib/apt/lists/*
 
